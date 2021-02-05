@@ -12,6 +12,7 @@
 namespace NicolasJourdan\BusinessLogicBundle\DependencyInjection;
 
 use NicolasJourdan\BusinessLogicBundle\Service\Rule\RuleInterface;
+use NicolasJourdan\BusinessLogicBundle\Service\Specification\CompositeSpecification;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 
@@ -21,5 +22,8 @@ class NicolasJourdanBusinessLogicExtension extends Extension
     {
         $container->registerForAutoconfiguration(RuleInterface::class)
             ->addTag('business_logic.rule');
+
+        $container->registerForAutoconfiguration(CompositeSpecification::class)
+            ->addTag('business_logic.specification');
     }
 }

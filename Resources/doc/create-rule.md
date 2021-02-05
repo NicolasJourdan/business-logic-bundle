@@ -18,7 +18,7 @@ A specification has to implement `NicolasJourdan\BusinessLogicBundle\Service\Rul
 namespace Your\Namespace\Rule;
 
 use NicolasJourdan\BusinessLogicBundle\Service\Rule\RuleInterface;
-use Your\Namespace\Specification\IsDummy;
+use Your\Namespace\Specification\IsDummySpecification;
 
 class DummyRule implements RuleInterface
 {
@@ -27,10 +27,10 @@ class DummyRule implements RuleInterface
         ['rule.user.another_tag'],
     ];
 
-    /** @var IsDummy */
+    /** @var IsDummySpecification */
     private $specification;
 
-    public function __construct(IsDummy $specification)
+    public function __construct(IsDummySpecification $specification)
     {
         $this->specification = $specification;
     }
@@ -53,6 +53,8 @@ class DummyRule implements RuleInterface
  This constant must be an array of arrays. Each array corresponds to a tag. The first argument must be a string
  and it is corresponding to the tag **name**. The second one is optional, it must be an integer and it is corresponding to the **priority**.
 
+You can generate this class with the next command `bin/console make:rule DummyRule`.
+
 ## Rule declaration
 
 You dont need to declare your rules into the **services.yml** file thanks to the indication `implements RuleInterface`. 
@@ -63,7 +65,7 @@ For instance, the `DummyRule` will be tagged with : `rule.user.vip`, `rule.user.
 # config/services.yml
     Your\Namespace\Rule\DummyRule:
         arguments:
-            $specification: '@Your\Namespace\Specification\IsDummy'
+            $specification: '@Your\Namespace\Specification\IsDummySpecification'
         tags:
             - { name: 'rule.user.vip', priority: 20 } # Tag your rule in order to include it into the related RulesEngine
             - 'rule.user.basic' # You can add several tags to a single rule
