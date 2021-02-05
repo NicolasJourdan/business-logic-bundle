@@ -1,3 +1,8 @@
 services:
     NicolasJourdan\BusinessLogicBundle\Maker\MakeSpecification:
         tags: ['maker.command']
+
+    NicolasJourdan\BusinessLogicBundle\Maker\MakeRule:
+        arguments:
+            $specifications: !tagged business_logic.specification
+        tags: ['maker.command']

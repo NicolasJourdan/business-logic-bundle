@@ -117,6 +117,8 @@ Thanks to the private constant `BUSINESS_LOGIC_TAGS` you can dynamically add tag
 This constant must be an array of arrays. Each array corresponds to a tag. The first argument must be a string
 and it is corresponding to the tag **name**. The second one is optional, it must be an integer and it is corresponding to the **priority**.
 
+You can generate this class with the next command `bin/console make:rule DummyRule`.
+
 ### The service declaration
 
 You dont need to declare your rules into the **services.yml** file thanks to the indication `implements RuleInterface`.

@@ -53,6 +53,8 @@ class DummyRule implements RuleInterface
  This constant must be an array of arrays. Each array corresponds to a tag. The first argument must be a string
  and it is corresponding to the tag **name**. The second one is optional, it must be an integer and it is corresponding to the **priority**.
 
+You can generate this class with the next command `bin/console make:rule DummyRule`.
+
 ## Rule declaration
 
 You dont need to declare your rules into the **services.yml** file thanks to the indication `implements RuleInterface`. 
