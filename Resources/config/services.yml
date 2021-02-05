@@ -1,0 +1,3 @@
+services:
+    NicolasJourdan\BusinessLogicBundle\Maker\MakeSpecification:
+        tags: ['maker.command']

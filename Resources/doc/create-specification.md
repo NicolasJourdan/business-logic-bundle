@@ -18,7 +18,7 @@ namespace Your\Namespace\Specification;
 
 use NicolasJourdan\BusinessLogicBundle\Service\Specification\CompositeSpecification;
 
-class IsDummy extends CompositeSpecification
+class IsDummySpecification extends CompositeSpecification
 {
     public function isSatisfiedBy($candidate): bool
     {
@@ -26,3 +26,5 @@ class IsDummy extends CompositeSpecification
     }
 }
 ```
+
+You can generate this class with the next command `bin/console make:specification IsDummySpecification`.

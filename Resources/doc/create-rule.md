@@ -18,7 +18,7 @@ A specification has to implement `NicolasJourdan\BusinessLogicBundle\Service\Rul
 namespace Your\Namespace\Rule;
 
 use NicolasJourdan\BusinessLogicBundle\Service\Rule\RuleInterface;
-use Your\Namespace\Specification\IsDummy;
+use Your\Namespace\Specification\IsDummySpecification;
 
 class DummyRule implements RuleInterface
 {
@@ -27,10 +27,10 @@ class DummyRule implements RuleInterface
         ['rule.user.another_tag'],
     ];
 
-    /** @var IsDummy */
+    /** @var IsDummySpecification */
     private $specification;
 
-    public function __construct(IsDummy $specification)
+    public function __construct(IsDummySpecification $specification)
     {
         $this->specification = $specification;
     }
@@ -63,7 +63,7 @@ For instance, the `DummyRule` will be tagged with : `rule.user.vip`, `rule.user.
 # config/services.yml
     Your\Namespace\Rule\DummyRule:
         arguments:
-            $specification: '@Your\Namespace\Specification\IsDummy'
+            $specification: '@Your\Namespace\Specification\IsDummySpecification'
         tags:
             - { name: 'rule.user.vip', priority: 20 } # Tag your rule in order to include it into the related RulesEngine
             - 'rule.user.basic' # You can add several tags to a single rule
